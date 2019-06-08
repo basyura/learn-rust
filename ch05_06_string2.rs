@@ -17,4 +17,10 @@ fn main() {
     let r2: Result<f64, _> = s2.parse();
     assert!(r2.is_err());
     println!("{:?}", r2);
+
+    let s3 = "amazon";
+    s3.to_uppercase();
+
+    s3.to_string();
+    println!("{}", s3.len());
 }
