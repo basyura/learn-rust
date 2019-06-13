@@ -1,4 +1,4 @@
-use create::Task::*;
+use crate::Task::*;
 
 type UserName = String;
 
@@ -25,14 +25,21 @@ fn main() {
 
     for (i, task) in tasks.iter().enumerate() {
         match task {
-            AssignedTo(assignee) => {
-                println!("タスク{}は{}さんにアサインされています", i, assignee)
-            }
-            Working{ assignee, remaining_hours } => {
-                println!("タスク{}は{}さんが作業中です。残り{}時間の見込み", i, assignee,
-                remaining_hours)
-            }
-            _ => println!("タスク{}はその他のステータス ({:?}) です", i, task);
+            AssignedTo(assignee) => println!(
+                "タスク{}は{}さんにアサインされています",
+                i, assignee
+            ),
+            Working {
+                assignee,
+                remaining_hours,
+            } => println!(
+                "タスク{}は{}さんが作業中です。残り{}時間の見込み",
+                i, assignee, remaining_hours
+            ),
+            _ => println!(
+                "タスク{}はその他のステータス ({:?}) です",
+                i, task
+            ),
         }
     }
 }
